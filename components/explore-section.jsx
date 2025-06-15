@@ -6,19 +6,19 @@ import { useState, useEffect } from "react";
 const playerImages = [
   {
     id: 1,
-    src: "/placeholder.svg?height=400&width=300",
+    src: "/shot-1.jpeg",
     alt: "Player dribbling with ball",
     position: "left",
   },
   {
     id: 2,
-    src: "/placeholder.svg?height=400&width=300",
+    src: "/shot-2.jpeg",
     alt: "Player in action pose",
     position: "center",
   },
   {
     id: 3,
-    src: "/placeholder.svg?height=400&width=300",
+    src: "/shot-4.jpeg",
     alt: "Player celebrating",
     position: "right",
   },

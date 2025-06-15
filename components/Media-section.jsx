@@ -26,27 +26,6 @@ const galleryData = [
     category: "analysis",
     description: "In-depth analysis of game-changing strategies",
   },
-  {
-    id: 4,
-    title: "Progress Journeys",
-    image: "/placeholder.svg?height=300&width=300",
-    category: "development",
-    description: "Tracking athlete development and improvement",
-  },
-  {
-    id: 5,
-    title: "Fitness Workouts",
-    image: "/placeholder.svg?height=300&width=300",
-    category: "training",
-    description: "Comprehensive fitness and conditioning programs",
-  },
-  {
-    id: 6,
-    title: "Clutch Performances",
-    image: "/placeholder.svg?height=300&width=300",
-    category: "highlights",
-    description: "Game-winning moments under pressure",
-  },
 ];
 
 // Individual Gallery Item Component

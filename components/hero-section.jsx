@@ -59,7 +59,7 @@ const HeroSection = () => {
             >
               {/* Hero Title */}
               <div className="space-y-4">
-                <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white leading-none tracking-wider">
+                <h1 className="text-6xl md:text-7xl font-62DRAGZ lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white leading-none tracking-wider">
                   AERO 90
                 </h1>
               </div>

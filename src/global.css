@@ -1,1 +1,64 @@
 @import "tailwindcss";
+
+/* Montserrat Regular */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Montserrat Bold */
+@font-face {
+  font-family: "Montserrat";
+  src: url("/fonts/montserrat/Montserrat-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* 62DRAGZ */
+@font-face {
+  font-family: "62DRAGZ";
+  src: url("/fonts/62DRAGZ/62DRAGZ.otf") format("opentype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Moto Verse */
+@font-face {
+  font-family: "Moto Verse";
+  src: url("/fonts/moto_verse/moto-verse.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Moto Verse Italic */
+@font-face {
+  font-family: "Moto Verse";
+  src: url("/fonts/moto_verse/moto-verse italic.ttf") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+  font-display: swap;
+}
+
+/* Spantaran */
+@font-face {
+  font-family: "Spantaran";
+  src: url("/fonts/spantaran/Spantaran (DEMO).ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+h1,
+h2 {
+  font-family: "Moto Verse", sans-serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}

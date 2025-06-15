@@ -7,10 +7,23 @@ const testimonials = [
   {
     id: 1,
     name: "Sania Khan",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/sania-khan.jpg",
     rating: 5,
     text: "Football has been a game-changer for me! It's taught me teamwork, discipline, and perseverance. Being part of a team has helped me build lifelong friendships and develop a sense of camaraderie. The thrill of competition, the rush of adrenaline, and the joy of scoring a goal are unbeatable. Football has not only improved my physical fitness but also boosted my confidence and mental toughness. I highly recommend it to anyone looking for a fun, challenging, and rewarding experience!",
-    position: "Student Athlete",
+  },
+  {
+    id: 2,
+    name: "Khushi Gupta",
+    image: "/placeholder.svg?height=150&width=150",
+    rating: 5,
+    text: "Football has been an incredible journey for me! It's where I've learned to push my limits, work with others towards a common goal, and overcome obstacles. The lessons I've learned on the field have translated into every aspect of my life, from school to personal relationships. The friendships I've made, the victories we've celebrated, and the setbacks we've overcome together have made football more than just a sport - it's a community, a passion, and a way of life. I'm forever grateful for the impact foot- ball has had on me!recommend it to anyone looking for a fun, challenging, and rewarding experience!",
+  },
+  {
+    id: 3,
+    name: "Rohit",
+    image: "/rohit.jpg",
+    rating: 5,
+    text: "Football has given me so much more than I ever thought possible! It's taught me discipline, hard work, and the value of teamwork. But most importantly, it's given me a sense of belonging and purpose. Being part of a team has helped me build strong relationships and create unforgettable memories. Whether I'm playing for fun or competing at a high level, football always pushes me to be my best self. I love the thrill of the game, the strategy, and the camaraderie with my teammates. Football is more than just a sport - it's my passion!",
   },
 ];
 
@@ -244,16 +257,32 @@ const Footer = () => {
   );
 };
 
-// Main Testimonial Page Component
+// Main Testimonial Page Component with Carousel
 const FooterPage = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 200);
-    return () => clearTimeout(timer);
+    setIsVisible(true);
   }, []);
+
+  // Auto-advance carousel every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, []);
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? testimonials.length - 1 : prev - 1
+    );
+  };
+
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  };
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
@@ -285,11 +314,70 @@ const FooterPage = () => {
               </h1>
             </div>
 
-            {/* Testimonial Card */}
-            <TestimonialCard
-              testimonial={testimonials[0]}
-              isVisible={isVisible}
-            />
+            {/* Carousel Controls and Testimonial Card */}
+            <div className="relative flex items-center justify-center">
+              {/* Prev Button */}
+              <button
+                onClick={handlePrev}
+                aria-label="Previous testimonial"
+                className="absolute left-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white rounded-full p-3 z-10 transition"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+              </button>
+
+              {/* Testimonial Card */}
+              <TestimonialCard
+                testimonial={testimonials[currentIndex]}
+                isVisible={isVisible}
+              />
+
+              {/* Next Button */}
+              <button
+                onClick={handleNext}
+                aria-label="Next testimonial"
+                className="absolute right-0 top-1/2 -translate-y-1/2 bg-black bg-opacity-60 hover:bg-opacity-80 text-white rounded-full p-3 z-10 transition"
+              >
+                <svg
+                  className="w-6 h-6"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth={3}
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+
+            {/* Carousel Dots */}
+            <div className="flex justify-center mt-6 space-x-2">
+              {testimonials.map((_, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => setCurrentIndex(idx)}
+                  className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                    idx === currentIndex ? "bg-red-600" : "bg-gray-600"
+                  }`}
+                  aria-label={`Go to testimonial ${idx + 1}`}
+                />
+              ))}
+            </div>
           </div>
         </section>
 

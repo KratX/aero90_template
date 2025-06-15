@@ -4,6 +4,7 @@ import ExploreSection from "../components/explore-section";
 import FooterPage from "../components/footer";
 import HeroSection from "../components/hero-section";
 import MediaGallery from "../components/Media-section";
+import AeroLandingPage from "../components/paragraph-section";
 import ServicesSection from "../components/services-section";
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       <HeroSection />
       <MediaGallery />
       <ExploreSection />
+      <AeroLandingPage />
       <AboutSection />
       <ServicesSection />
       <CoachSection />
