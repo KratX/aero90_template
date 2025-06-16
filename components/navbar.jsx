@@ -5,14 +5,8 @@ import { useState } from "react";
 // Logo Component
 const Logo = () => (
   <div className="flex items-center space-x-2">
-    <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center relative overflow-hidden">
-      <div className="w-8 h-8 border-2 border-white rounded-full flex items-center justify-center">
-        <div className="w-4 h-4 bg-white rounded-full"></div>
-      </div>
-      <div className="absolute top-1 right-1 w-2 h-2 bg-yellow-400 rounded-full"></div>
-    </div>
     <div className="text-white font-bold text-xl">
-      <span className="text-red-500">AERO 90</span>
+      <img className="w-35 h-30" src="/logo.png" alt="" />
     </div>
   </div>
 );

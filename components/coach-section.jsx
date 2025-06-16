@@ -7,21 +7,21 @@ const coaches = [
   {
     id: 1,
     name: "Rahul Verma",
-    image: "/placeholder.svg?height=300&width=250",
+    image: "/coach-3.png",
     specialty: "Technical Development",
     experience: "15+ years",
   },
   {
     id: 2,
     name: "Elina Roy",
-    image: "/placeholder.svg?height=300&width=250",
+    image: "/coach-5.png",
     specialty: "Youth Development",
     experience: "12+ years",
   },
   {
     id: 3,
     name: "Daniel D'Souza",
-    image: "/placeholder.svg?height=300&width=250",
+    image: "/coach-1.png",
     specialty: "Head Coach",
     experience: "20+ years",
     featured: true,
@@ -29,14 +29,14 @@ const coaches = [
   {
     id: 4,
     name: "Isha Khan",
-    image: "/placeholder.svg?height=300&width=250",
+    image: "/coach-4.png",
     specialty: "Fitness & Conditioning",
     experience: "10+ years",
   },
   {
     id: 5,
     name: "Siddharth Menon",
-    image: "/placeholder.svg?height=300&width=250",
+    image: "/coach-2.png",
     specialty: "Tactical Analysis",
     experience: "8+ years",
   },
@@ -80,7 +80,7 @@ const CoachCard = ({
           <img
             src={coach.image || "/placeholder.svg"}
             alt={coach.name}
-            className={`w-full h-full object-cover transition-all duration-500 ${
+            className={`w-full h-full object-contain transition-all duration-500 ${
               isHovered ? "scale-110 brightness-110" : "scale-100 brightness-90"
             } ${imageLoaded ? "opacity-100" : "opacity-0"}`}
             onLoad={() => setImageLoaded(true)}

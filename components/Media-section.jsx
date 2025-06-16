@@ -7,14 +7,14 @@ const galleryData = [
   {
     id: 1,
     title: "Top Moments",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/media-1.png",
     category: "highlights",
     description: "Unforgettable moments that define greatness on the field",
   },
   {
     id: 2,
     title: "Player Spotlights",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/media-2.png",
     category: "players",
     description: "Individual brilliance and standout performances",
     featured: true,
@@ -22,7 +22,7 @@ const galleryData = [
   {
     id: 3,
     title: "Tactical Breakdowns",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/media-3.png",
     category: "analysis",
     description: "In-depth analysis of game-changing strategies",
   },

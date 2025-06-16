@@ -169,7 +169,7 @@ const ExploreSection = () => {
               <div className="absolute inset-0 flex items-center justify-center">
                 <button
                   onClick={() => handleButtonClick("explore")}
-                  className={`bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
+                  className={`bg-red-600 hover:-translate-y-1 hover:scale-110  hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
                     isVisible
                       ? "translate-y-0 opacity-100"
                       : "translate-y-10 opacity-0"

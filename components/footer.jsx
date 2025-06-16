@@ -14,7 +14,7 @@ const testimonials = [
   {
     id: 2,
     name: "Khushi Gupta",
-    image: "/placeholder.svg?height=150&width=150",
+    image: "/khushi.png",
     rating: 5,
     text: "Football has been an incredible journey for me! It's where I've learned to push my limits, work with others towards a common goal, and overcome obstacles. The lessons I've learned on the field have translated into every aspect of my life, from school to personal relationships. The friendships I've made, the victories we've celebrated, and the setbacks we've overcome together have made football more than just a sport - it's a community, a passion, and a way of life. I'm forever grateful for the impact foot- ball has had on me!recommend it to anyone looking for a fun, challenging, and rewarding experience!",
   },

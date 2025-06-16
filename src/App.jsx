@@ -1,3 +1,4 @@
+import AboutHead from "../components/about-head";
 import AboutSection from "../components/about-section";
 import CoachSection from "../components/coach-section";
 import ExploreSection from "../components/explore-section";
@@ -14,6 +15,7 @@ function App() {
       <MediaGallery />
       <ExploreSection />
       <AeroLandingPage />
+      <AboutHead />
       <AboutSection />
       <ServicesSection />
       <CoachSection />
