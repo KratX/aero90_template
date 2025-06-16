@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Testimonial data
 const testimonials = [
@@ -16,7 +17,7 @@ const testimonials = [
     name: "Khushi Gupta",
     image: "/khushi.png",
     rating: 5,
-    text: "Football has been an incredible journey for me! It's where I've learned to push my limits, work with others towards a common goal, and overcome obstacles. The lessons I've learned on the field have translated into every aspect of my life, from school to personal relationships. The friendships I've made, the victories we've celebrated, and the setbacks we've overcome together have made football more than just a sport - it's a community, a passion, and a way of life. I'm forever grateful for the impact foot- ball has had on me!recommend it to anyone looking for a fun, challenging, and rewarding experience!",
+    text: "Football has been an incredible journey for me! It's where I've learned to push my limits, work with others towards a common goal, and overcome obstacles. The lessons I've learned on the field have translated into every aspect of my life, from school to personal relationships. The friendships I've made, the victories we've celebrated, and the setbacks we've overcome together have made football more than just a sport - it's a community, a passion, and a way of life. I'm forever grateful for the impact football has had on me!",
   },
   {
     id: 3,
@@ -184,10 +185,10 @@ const Newsletter = () => {
 // Footer Component
 const Footer = () => {
   const menuItems = [
-    { name: "About", href: "#about" },
-    { name: "Coaches", href: "#coaches" },
-    { name: "Services", href: "#services" },
-    { name: "Pricing", href: "#pricing" },
+    { name: "About", path: "/about-us" },
+    { name: "Coaches", path: "/coaches" },
+    { name: "Services", path: "/services" },
+    { name: "Media", path: "/media" },
   ];
 
   const socialLinks = [
@@ -211,12 +212,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <a
-                    href={item.href}
+                  <Link
+                    to={item.path}
                     className="text-gray-400 hover:text-white transition-colors duration-300"
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -295,7 +296,7 @@ const FooterPage = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 pt-20">
         {/* Testimonial Section */}
         <section className="py-20">
           <div className="container mx-auto px-4">

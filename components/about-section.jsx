@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Icon components for the core principles
 const TransparencyIcon = () => (
@@ -158,7 +159,7 @@ const AboutSection = () => {
           }`}
         >
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
-            <span className="text-red-600">Our</span>Values
+            <span className="text-red-600">Our</span> Values
           </h2>
 
           <div className="h-0.5 w-full bg-gray-700 mb-8"></div>
@@ -222,9 +223,11 @@ const AboutSection = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
-            Join Our Academy
-          </button>
+          <Link to="/explore">
+            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
+              Join Our Academy
+            </button>
+          </Link>
         </div>
       </div>
     </div>

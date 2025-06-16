@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Media Gallery Data
 const galleryData = [
@@ -191,7 +192,7 @@ const MediaGallery = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
+      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 pt-32">
         {/* Header Section */}
         <div
           className={`text-center mb-16 transform transition-all duration-1000 ${
@@ -256,9 +257,11 @@ const MediaGallery = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
-            Explore Full Gallery
-          </button>
+          <Link to="/explore">
+            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-full transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
+              Explore Full Gallery
+            </button>
+          </Link>
         </div>
       </div>
 

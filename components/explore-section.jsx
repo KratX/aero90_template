@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 // Player action images data
 const playerImages = [
@@ -104,11 +105,6 @@ const ExploreSection = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  const handleButtonClick = (buttonType) => {
-    console.log(`${buttonType} button clicked`);
-    // Add your button click logic here
-  };
-
   return (
     <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Background Elements */}
@@ -123,7 +119,7 @@ const ExploreSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24">
+      <div className="relative z-10 container mx-auto px-4 py-16 md:py-24 pt-32">
         {/* Header Section */}
         <div
           className={`text-center mb-12 transform transition-all duration-1000 ${
@@ -167,17 +163,18 @@ const ExploreSection = () => {
 
               {/* Explore Programs Button - positioned over center image */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <button
-                  onClick={() => handleButtonClick("explore")}
-                  className={`bg-red-600 hover:-translate-y-1 hover:scale-110  hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
-                    isVisible
-                      ? "translate-y-0 opacity-100"
-                      : "translate-y-10 opacity-0"
-                  }`}
-                  style={{ transitionDelay: "800ms" }}
-                >
-                  Explore Programs
-                </button>
+                <Link to="/services">
+                  <button
+                    className={`bg-red-600 hover:-translate-y-1 hover:scale-110  hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
+                      isVisible
+                        ? "translate-y-0 opacity-100"
+                        : "translate-y-10 opacity-0"
+                    }`}
+                    style={{ transitionDelay: "800ms" }}
+                  >
+                    Explore Programs
+                  </button>
+                </Link>
               </div>
             </div>
           </div>
@@ -205,19 +202,17 @@ const ExploreSection = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button
-            onClick={() => handleButtonClick("learn")}
-            className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider"
-          >
-            Learn More
-          </button>
+          <Link to="/about-us">
+            <button className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+              Learn More
+            </button>
+          </Link>
 
-          <button
-            onClick={() => handleButtonClick("contact")}
-            className="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider"
-          >
-            Contact Us
-          </button>
+          <Link to="/testimonials">
+            <button className="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+              Contact Us
+            </button>
+          </Link>
         </div>
 
         {/* Features Grid */}

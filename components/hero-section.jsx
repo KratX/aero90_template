@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 
 // Social Media Icons Component
@@ -14,7 +15,7 @@ const SocialIcon = ({ icon, href, ariaLabel }) => (
   </a>
 );
 
-// Main App Component
+// Main Hero Section Component
 const HeroSection = () => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -59,7 +60,7 @@ const HeroSection = () => {
             >
               {/* Hero Title */}
               <div className="space-y-4">
-                <h1 className="text-6xl md:text-7xl font-62DRAGZ lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white leading-none tracking-wider">
+                <h1 className="text-6xl md:text-7xl lg:text-8xl font-black text-transparent bg-clip-text bg-gradient-to-r from-gray-300 to-white leading-none tracking-wider">
                   AERO 90
                 </h1>
               </div>
@@ -79,10 +80,12 @@ const HeroSection = () => {
                   endurance and performance at the highest level.
                 </p>
 
-                {/* CTA Button */}
-                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
-                  LEARN MORE
-                </button>
+                {/* CTA Button with Router Link */}
+                <Link to="/about-us">
+                  <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-8 rounded-none transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
+                    LEARN MORE
+                  </button>
+                </Link>
               </div>
 
               {/* Social Media */}

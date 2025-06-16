@@ -1,19 +1,33 @@
 "use client";
 
 import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
 
 // Logo Component
 const Logo = () => (
   <div className="flex items-center space-x-2">
     <div className="text-white font-bold text-xl">
-      <img className="w-35 h-30" src="/logo.png" alt="" />
+      <a href="/">
+        <img className="w-25 h-20" src="/logo.png" alt="Aero 90 Logo" />
+      </a>
     </div>
   </div>
 );
 
-// Navigation Component
+// Navigation Component with React Router Links
 const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
-  const navItems = ["Home", "About Us", "Coaches", "Services"];
+  const location = useLocation();
+
+  const navItems = [
+    { name: "Home", path: "/home" },
+    { name: "About Us", path: "/about-us" },
+    { name: "Coaches", path: "/coaches" },
+    { name: "Services", path: "/services" },
+  ];
+
+  const isActive = (path) => {
+    return location.pathname === path;
+  };
 
   return (
     <nav className="relative">
@@ -21,13 +35,21 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
       <ul className="hidden md:flex space-x-8">
         {navItems.map((item, index) => (
           <li key={index}>
-            <a
-              href={`#${item.toLowerCase().replace(" ", "-")}`}
-              className="text-white hover:text-red-500 transition-colors duration-300 font-medium text-lg relative group"
+            <Link
+              to={item.path}
+              className={`transition-colors duration-300 font-medium text-lg relative group ${
+                isActive(item.path)
+                  ? "text-red-500"
+                  : "text-white hover:text-red-500"
+              }`}
             >
-              {item}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-red-500 transition-all duration-300 group-hover:w-full"></span>
-            </a>
+              {item.name}
+              <span
+                className={`absolute -bottom-1 left-0 h-0.5 bg-red-500 transition-all duration-300 ${
+                  isActive(item.path) ? "w-full" : "w-0 group-hover:w-full"
+                }`}
+              ></span>
+            </Link>
           </li>
         ))}
       </ul>
@@ -68,13 +90,17 @@ const Navigation = ({ isMenuOpen, setIsMenuOpen }) => {
           <ul className="py-2">
             {navItems.map((item, index) => (
               <li key={index}>
-                <a
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="block px-4 py-2 text-white hover:text-red-500 hover:bg-gray-800 transition-colors duration-300"
+                <Link
+                  to={item.path}
+                  className={`block px-4 py-2 transition-colors duration-300 ${
+                    isActive(item.path)
+                      ? "text-red-500 bg-gray-800"
+                      : "text-white hover:text-red-500 hover:bg-gray-800"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  {item}
-                </a>
+                  {item.name}
+                </Link>
               </li>
             ))}
           </ul>
@@ -91,7 +117,9 @@ const Navbar = () => {
   return (
     <header className="container mx-auto px-4 py-6">
       <div className="flex items-center justify-between">
-        <Logo />
+        <Link to="/">
+          <Logo />
+        </Link>
         <Navigation isMenuOpen={isMenuOpen} setIsMenuOpen={setIsMenuOpen} />
       </div>
     </header>

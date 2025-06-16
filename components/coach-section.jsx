@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./navbar";
 
 // Coaches data
 const coaches = [
@@ -270,7 +272,7 @@ const LegacySection = ({ isVisible }) => {
               }`}
             >
               <span className="text-white">Our Legacy</span>
-              <span className="text-red-500">in Football</span>
+              <span className="text-red-500"> in Football</span>
             </h2>
 
             <p
@@ -295,13 +297,17 @@ const LegacySection = ({ isVisible }) => {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <button className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
-                Register Now
-              </button>
+              <Link to="/explore">
+                <button className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+                  Register Now
+                </button>
+              </Link>
 
-              <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
-                Watch Story
-              </button>
+              <Link to="/media">
+                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
+                  Watch Story
+                </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -323,6 +329,11 @@ const CoachSection = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Navigation */}
+      <div className="absolute top-0 left-0 w-full z-30">
+        <Navbar />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div
@@ -334,7 +345,7 @@ const CoachSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="relative z-10">
+      <div className="relative z-10 pt-20">
         {/* Page Title */}
         <div className="container mx-auto px-4 py-16">
           <div

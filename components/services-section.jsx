@@ -1,14 +1,10 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
+import Navbar from "./navbar";
 
 // Service Icons Components
-const EliteTrainingIcon = () => (
-  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
-    <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L8 8.5V13h2V9.6l-.2-.7z" />
-  </svg>
-);
-
 const StrengthIcon = () => (
   <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
     <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
@@ -40,8 +36,6 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
 
   const getIcon = (iconName) => {
     switch (iconName) {
-      case "elite":
-        return <EliteTrainingIcon />;
       case "strength":
         return <StrengthIcon />;
       case "psychology":
@@ -50,8 +44,6 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
         return <MentorshipIcon />;
       case "analytics":
         return <AnalyticsIcon />;
-      default:
-        return <EliteTrainingIcon />;
     }
   };
 
@@ -157,6 +149,11 @@ const ServicesSection = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
+      {/* Navigation */}
+      <div className="absolute top-0 left-0 w-full z-30">
+        <Navbar />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div
@@ -171,7 +168,7 @@ const ServicesSection = () => {
       </div>
 
       {/* Main Content */}
-      <div className="container mx-auto px-4 py-16 relative z-10">
+      <div className="container mx-auto px-4 py-16 relative z-10 pt-32">
         {/* Page Title */}
         <div
           className={`text-center mb-20 transform transition-all duration-1000 ${
@@ -204,9 +201,11 @@ const ServicesSection = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider text-lg">
-            Start Your Journey
-          </button>
+          <Link to="/explore">
+            <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-xl transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider text-lg">
+              Start Your Journey
+            </button>
+          </Link>
         </div>
       </div>
 
