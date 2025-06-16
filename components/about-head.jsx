@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 
 export default function AboutHead() {
@@ -78,24 +77,20 @@ export default function AboutHead() {
               </p>
 
               {/* CTA Button */}
-              <Link to="/services">
-                <button
-                  className="group relative bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 shadow-xl"
-                  style={{
-                    transform: `translate(${mousePosition.x * 0.005}px, ${
-                      mousePosition.y * 0.005
-                    }px) scale(${mousePosition.x > 0 ? 1 : 1})`,
-                  }}
-                >
-                  <span className="relative z-10 tracking-wide">
-                    LEARN MORE
-                  </span>
-                  <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  <div className="absolute inset-0 bg-white opacity-0 group-active:opacity-20 transition-opacity duration-150" />
-                  {/* Button glow effect */}
-                  <div className="absolute inset-0 bg-red-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10" />
-                </button>
-              </Link>
+              <button
+                className="group relative bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 shadow-xl"
+                style={{
+                  transform: `translate(${mousePosition.x * 0.005}px, ${
+                    mousePosition.y * 0.005
+                  }px) scale(${mousePosition.x > 0 ? 1 : 1})`,
+                }}
+              >
+                <span className="relative z-10 tracking-wide">LEARN MORE</span>
+                <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute inset-0 bg-white opacity-0 group-active:opacity-20 transition-opacity duration-150" />
+                {/* Button glow effect */}
+                <div className="absolute inset-0 bg-red-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10" />
+              </button>
 
               {/* Stats section */}
               <div className="mt-16 grid grid-cols-3 gap-8 opacity-90">

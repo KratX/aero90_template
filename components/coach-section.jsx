@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Navbar from "./navbar";
 
 // Coaches data
@@ -297,17 +296,13 @@ const LegacySection = ({ isVisible }) => {
                   : "translate-y-10 opacity-0"
               }`}
             >
-              <Link to="/explore">
-                <button className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
-                  Register Now
-                </button>
-              </Link>
+              <button className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+                Register Now
+              </button>
 
-              <Link to="/media">
-                <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
-                  Watch Story
-                </button>
-              </Link>
+              <button className="bg-red-600 hover:bg-red-700 text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider">
+                Watch Story
+              </button>
             </div>
           </div>
         </div>

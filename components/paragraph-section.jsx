@@ -1,7 +1,5 @@
 "use client";
 
-import { Link } from "react-router-dom";
-
 export default function ParagraphSection() {
   return (
     <main className="min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center px-6 py-16">
@@ -27,11 +25,9 @@ export default function ParagraphSection() {
 
         {/* Button */}
         <div className="mt-10">
-          <Link to="/about-us">
-            <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-lg transition-all duration-200 shadow-md">
-              Learn more
-            </button>
-          </Link>
+          <button className="bg-red-600 hover:bg-red-700 text-white px-6 py-2 rounded-md text-lg transition-all duration-200 shadow-md">
+            Learn more
+          </button>
         </div>
       </div>
     </main>

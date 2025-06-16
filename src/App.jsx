@@ -62,9 +62,6 @@ function App() {
           <Route path="/about-us" element={<AboutPage />} />
           <Route path="/coaches" element={<CoachSection />} />
           <Route path="/services" element={<ServicesSection />} />
-          <Route path="/media" element={<MediaGallery />} />
-          <Route path="/explore" element={<ExploreSection />} />
-          <Route path="/testimonials" element={<FooterPage />} />
         </Routes>
       </div>
     </Router>

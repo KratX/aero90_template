@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // Testimonial data
 const testimonials = [
@@ -212,12 +211,10 @@ const Footer = () => {
             <ul className="space-y-3">
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  <Link
-                    to={item.path}
-                    className="text-gray-400 hover:text-white transition-colors duration-300"
-                  >
-                    {item.name}
-                  </Link>
+                  to={item.path}
+                  className="text-gray-400 hover:text-white transition-colors
+                  duration-300"
+                  {item.name}
                 </li>
               ))}
             </ul>

@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 // Player action images data
 const playerImages = [
@@ -163,18 +162,16 @@ const ExploreSection = () => {
 
               {/* Explore Programs Button - positioned over center image */}
               <div className="absolute inset-0 flex items-center justify-center">
-                <Link to="/services">
-                  <button
-                    className={`bg-red-600 hover:-translate-y-1 hover:scale-110  hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
-                      isVisible
-                        ? "translate-y-0 opacity-100"
-                        : "translate-y-10 opacity-0"
-                    }`}
-                    style={{ transitionDelay: "800ms" }}
-                  >
-                    Explore Programs
-                  </button>
-                </Link>
+                <button
+                  className={`bg-red-600 hover:-translate-y-1 hover:scale-110  hover:bg-red-700 text-white font-bold py-4 px-8 rounded-lg transition-all duration-300 transform hover:shadow-lg hover:shadow-red-500/25 uppercase tracking-wider z-20 ${
+                    isVisible
+                      ? "translate-y-0 opacity-100"
+                      : "translate-y-10 opacity-0"
+                  }`}
+                  style={{ transitionDelay: "800ms" }}
+                >
+                  Explore Programs
+                </button>
               </div>
             </div>
           </div>
@@ -202,17 +199,13 @@ const ExploreSection = () => {
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
           }`}
         >
-          <Link to="/about-us">
-            <button className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
-              Learn More
-            </button>
-          </Link>
+          <button className="bg-transparent border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+            Learn More
+          </button>
 
-          <Link to="/testimonials">
-            <button className="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
-              Contact Us
-            </button>
-          </Link>
+          <button className="bg-white text-black hover:bg-gray-200 font-bold py-3 px-8 rounded-lg transition-all duration-300 transform hover:scale-105 uppercase tracking-wider">
+            Contact Us
+          </button>
         </div>
 
         {/* Features Grid */}
