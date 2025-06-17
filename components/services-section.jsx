@@ -1,9 +1,14 @@
-"use client";
-
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./navbar";
 
-// Service Icons Components
+// --- Icons ---
+const EliteTrainingIcon = () => (
+  <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M13.5 5.5c1.1 0 2-.9 2-2s-.9-2-2-2-2 .9-2 2 .9 2 2 2zM9.8 8.9L7 23h2.1l1.8-8 2.1 2v6h2v-7.5l-2.1-2 .6-3C14.8 12 16.8 13 19 13v-2c-1.9 0-3.5-1-4.3-2.4l-1-1.6c-.4-.6-1-1-1.7-1-.3 0-.5.1-.8.1L8 8.5V13h2V9.6l-.2-.7z" />
+  </svg>
+);
+
 const StrengthIcon = () => (
   <svg className="w-16 h-16" fill="currentColor" viewBox="0 0 24 24">
     <path d="M20.57 14.86L22 13.43 20.57 12 17 15.57 8.43 7 12 3.43 10.57 2 9.14 3.43 7.71 2 5.57 4.14 4.14 2.71 2.71 4.14l1.43 1.43L2 7.71l1.43 1.43L2 10.57 3.43 12 7 8.43 15.57 17 12 20.57 13.43 22l1.43-1.43L16.29 22l2.14-2.14 1.43 1.43 1.43-1.43-1.43-1.43L22 16.29l-1.43-1.43z" />
@@ -29,12 +34,14 @@ const AnalyticsIcon = () => (
   </svg>
 );
 
-// Service Card Component with Staggered Layout
+// --- Service Card ---
 const ServiceCard = ({ service, index, isVisible, isLeft }) => {
   const [isHovered, setIsHovered] = useState(false);
 
   const getIcon = (iconName) => {
     switch (iconName) {
+      case "elite":
+        return <EliteTrainingIcon />;
       case "strength":
         return <StrengthIcon />;
       case "psychology":
@@ -43,6 +50,8 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
         return <MentorshipIcon />;
       case "analytics":
         return <AnalyticsIcon />;
+      default:
+        return <EliteTrainingIcon />;
     }
   };
 
@@ -71,7 +80,6 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
             isLeft ? "" : "flex-row-reverse space-x-reverse"
           }`}
         >
-          {/* Icon */}
           <div className="flex-shrink-0">
             <div
               className={`p-4 rounded-2xl bg-gray-700/50 transition-all duration-300 ${
@@ -85,7 +93,6 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
             </p>
           </div>
 
-          {/* Content */}
           <div className="flex-1">
             <p className="text-gray-300 text-base leading-relaxed">
               {service.description}
@@ -97,44 +104,45 @@ const ServiceCard = ({ service, index, isVisible, isLeft }) => {
   );
 };
 
-// Main Services Component
+// --- Main Services Section ---
 const ServicesSection = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const location = useLocation(); // 👈 Route checker
 
   const services = [
     {
       id: 1,
       title: "Elite Football Training",
       description:
-        "Position-specific drills, tactical development, and personalized coaching for players aged 8-18. Our sessions are designed to maximize performance and build football intelligence.",
-      icon: "elite",
+        "Position-specific drills, tactical development, and personalized coaching for players aged 8–18.",
+      icon: "strength",
     },
     {
       id: 2,
       title: "Strength Conditioning",
       description:
-        "Training the mind is just as important as training the body. We provide mindset coaching, focus drills, and confidence-building sessions to prepare players for high-pressure situations.",
-      icon: "strength",
+        "Mindset coaching, focus drills, and confidence-building sessions for high-pressure performance.",
+      icon: "psychology",
     },
     {
       id: 3,
       title: "Sports Psychology",
       description:
-        "Modern fitness programs focused on agility, speed, stamina, recovery, and injury prevention — designed by certified experts to support long-term athletic growth.",
-      icon: "psychology",
+        "Modern fitness programs to improve agility, stamina, and recovery — designed for long-term growth.",
+      icon: "mentorship",
     },
     {
       id: 4,
       title: "Mentorship",
       description:
-        "Data-driven training using video reviews, individual stats, and game performance breakdowns — helping players understand their game and improve faster.",
-      icon: "mentorship",
+        "One-on-one guidance and football career mentorship by experienced professionals.",
+      icon: "analytics",
     },
     {
       id: 5,
       title: "Performance Analysis",
       description:
-        "Data-driven training using video reviews, individual stats, and game performance breakdowns — helping players understand their game and improve faster.",
+        "Video reviews, performance stats, and game breakdowns to elevate player understanding.",
       icon: "analytics",
     },
   ];
@@ -148,21 +156,21 @@ const ServicesSection = () => {
 
   return (
     <div className="min-h-screen bg-black text-white relative overflow-hidden">
-      {/* Navigation */}
-      <div className="absolute top-0 left-0 w-full z-30">
-        <Navbar />
-      </div>
+      {/* ✅ Conditional Navbar */}
+      {location.pathname !== "/" && (
+        <div className="absolute top-0 left-0 w-full z-30">
+          <Navbar />
+        </div>
+      )}
 
       {/* Background Pattern */}
       <div className="absolute inset-0">
         <div
           className="absolute inset-0 opacity-10"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60'%3E%3Cg fill='none' fillRule='evenodd'%3E%3Cg fill='%23ffffff' fillOpacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
           }}
         />
-
-        {/* Gradient Overlay */}
         <div className="absolute inset-0 bg-gradient-to-br from-gray-900/50 via-black to-gray-900/50" />
       </div>
 
@@ -181,7 +189,7 @@ const ServicesSection = () => {
           </h1>
         </div>
 
-        {/* Services Grid with Staggered Layout */}
+        {/* Services List */}
         <div className="max-w-7xl mx-auto space-y-16">
           {services.map((service, index) => (
             <ServiceCard
@@ -194,7 +202,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Call to Action */}
+        {/* CTA Button */}
         <div
           className={`text-center mt-20 transform transition-all duration-1000 delay-1500 ${
             isVisible ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
@@ -206,7 +214,7 @@ const ServicesSection = () => {
         </div>
       </div>
 
-      {/* Background Geometric Elements */}
+      {/* Background Geometry */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="absolute top-20 left-10 w-40 h-40 border border-red-500/10 rotate-45 animate-pulse" />
         <div className="absolute bottom-40 right-20 w-32 h-32 border border-gray-600/20 rotate-12" />

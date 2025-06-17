@@ -1,18 +1,16 @@
-"use client";
-
 import { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
 import Navbar from "./navbar";
 
 export default function AboutHead() {
   const [isVisible, setIsVisible] = useState(false);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const location = useLocation();
 
-  // Animation on mount
   useEffect(() => {
     setIsVisible(true);
   }, []);
 
-  // Mouse tracking for interactive effects
   useEffect(() => {
     const handleMouseMove = (e) => {
       setMousePosition({ x: e.clientX, y: e.clientY });
@@ -24,10 +22,12 @@ export default function AboutHead() {
 
   return (
     <div className="min-h-screen relative overflow-hidden">
-      {/* Navigation */}
-      <div className="absolute top-0 left-0 w-full z-30">
-        <Navbar />
-      </div>
+      {/* ✅ Conditionally render navbar */}
+      {location.pathname !== "/" && (
+        <div className="absolute top-0 left-0 w-full z-30">
+          <Navbar />
+        </div>
+      )}
 
       {/* Full background image */}
       <div className="absolute inset-0">
@@ -36,17 +36,14 @@ export default function AboutHead() {
           alt="Football player with ball on field"
           className="w-full h-full object-cover"
         />
-        {/* Dark overlay for better text readability */}
         <div className="absolute inset-0 bg-black/60" />
-        {/* Gradient overlay for enhanced visual depth */}
         <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
       </div>
 
-      {/* Main content container */}
+      {/* Main content */}
       <div className="relative z-20 min-h-screen flex items-center">
         <div className="container mx-auto px-6 sm:px-8 lg:px-12 xl:px-16 py-12">
           <div className="max-w-4xl">
-            {/* Content */}
             <div
               className={`relative z-30 max-w-2xl transition-all duration-1000 ${
                 isVisible
@@ -54,12 +51,10 @@ export default function AboutHead() {
                   : "opacity-0 translate-y-10"
               }`}
             >
-              {/* About Us Header */}
               <h2 className="text-white text-6xl font-bold tracking-wider mb-8 opacity-90">
                 ABOUT US
               </h2>
 
-              {/* Main Heading */}
               <h3 className="text-white text-3xl sm:text-xl lg:text-2xl xl:text-2xl font-semibold leading-tight mb-6 drop-shadow-2xl">
                 Aero 90 is not just a football academy — it's a{" "}
                 <span className="text-red-500 relative">
@@ -68,7 +63,6 @@ export default function AboutHead() {
                 </span>
               </h3>
 
-              {/* Description */}
               <p className="text-white text-base sm:text-lg leading-relaxed mb-8 opacity-95 drop-shadow-lg max-w-xl">
                 Founded with a vision to redefine grassroots and elite-level
                 football training in India, Aero 90 is where ambition meets
@@ -76,7 +70,6 @@ export default function AboutHead() {
                 discipline needed to thrive on and off the pitch.
               </p>
 
-              {/* CTA Button */}
               <button
                 className="group relative bg-red-500 hover:bg-red-600 text-white font-bold py-4 px-8 transition-all duration-300 transform hover:scale-105 hover:shadow-2xl active:scale-95 shadow-xl"
                 style={{
@@ -88,39 +81,29 @@ export default function AboutHead() {
                 <span className="relative z-10 tracking-wide">LEARN MORE</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-red-600 to-red-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <div className="absolute inset-0 bg-white opacity-0 group-active:opacity-20 transition-opacity duration-150" />
-                {/* Button glow effect */}
                 <div className="absolute inset-0 bg-red-500 blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-300 -z-10" />
               </button>
 
-              {/* Stats section */}
               <div className="mt-16 grid grid-cols-3 gap-8 opacity-90">
-                <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-bold text-red-500 mb-2 drop-shadow-lg">
-                    500+
+                {[
+                  { label: "Students Trained", value: "500+" },
+                  { label: "Expert Coaches", value: "15+" },
+                  { label: "Years Experience", value: "10" },
+                ].map((item) => (
+                  <div
+                    key={item.label}
+                    className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-white/10"
+                  >
+                    <div className="text-3xl font-bold text-red-500 mb-2 drop-shadow-lg">
+                      {item.value}
+                    </div>
+                    <div className="text-white text-sm font-medium">
+                      {item.label}
+                    </div>
                   </div>
-                  <div className="text-white text-sm font-medium">
-                    Students Trained
-                  </div>
-                </div>
-                <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-bold text-red-500 mb-2 drop-shadow-lg">
-                    15+
-                  </div>
-                  <div className="text-white text-sm font-medium">
-                    Expert Coaches
-                  </div>
-                </div>
-                <div className="text-center bg-black/30 backdrop-blur-sm rounded-lg p-4 border border-white/10">
-                  <div className="text-3xl font-bold text-red-500 mb-2 drop-shadow-lg">
-                    10
-                  </div>
-                  <div className="text-white text-sm font-medium">
-                    Years Experience
-                  </div>
-                </div>
+                ))}
               </div>
 
-              {/* Additional features showcase */}
               <div className="mt-12 flex flex-wrap gap-4">
                 {[
                   "Elite Training",
@@ -144,7 +127,7 @@ export default function AboutHead() {
         </div>
       </div>
 
-      {/* Floating action elements */}
+      {/* Floating Socials */}
       <div className="fixed bottom-8 right-8 z-40">
         <div className="flex flex-col gap-4">
           {/* Social media buttons */}
@@ -168,12 +151,12 @@ export default function AboutHead() {
         </div>
       </div>
 
-      {/* Loading/Activity indicator */}
+      {/* Activity Dot */}
       <div className="fixed top-6 right-6 z-40">
         <div className="w-4 h-4 bg-red-500 rounded-full animate-pulse shadow-lg" />
       </div>
 
-      {/* Scroll indicator */}
+      {/* Scroll Indicator */}
       <div className="fixed bottom-8 left-1/2 transform -translate-x-1/2 z-40">
         <div className="flex flex-col items-center text-white/60 animate-bounce">
           <div className="text-xs mb-2 font-medium">Scroll Down</div>
