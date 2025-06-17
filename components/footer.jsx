@@ -184,10 +184,10 @@ const Newsletter = () => {
 // Footer Component
 const Footer = () => {
   const menuItems = [
-    { name: "About", path: "/about-us" },
-    { name: "Coaches", path: "/coaches" },
-    { name: "Services", path: "/services" },
-    { name: "Media", path: "/media" },
+    { name: "About", path: "/about-us " },
+    { name: "Coaches", path: "/coaches " },
+    { name: "Services", path: "/services " },
+    { name: "Media", path: "/media " },
   ];
 
   const socialLinks = [
@@ -211,10 +211,12 @@ const Footer = () => {
             <ul className="space-y-3">
               {menuItems.map((item, index) => (
                 <li key={index}>
-                  to={item.path}
-                  className="text-gray-400 hover:text-white transition-colors
-                  duration-300"
-                  {item.name}
+                  <a
+                    href={item.path}
+                    className="text-gray-400 hover:text-white text-xl font-semibold transition-colors duration-300"
+                  >
+                    {item.name}
+                  </a>
                 </li>
               ))}
             </ul>
